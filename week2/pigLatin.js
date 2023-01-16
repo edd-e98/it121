@@ -1,11 +1,9 @@
 // Program notes
-// step one: gather word input from user
-// step two: determine if input begins with a vowel.
-// If vowel, append -way to end of word
-// Step three: determine if word begins with one or two consonants
-// move one/both consonants to end, then append -way
+// Made by Eddie Melton, for my IT 121 class
+// 1/15/2023
+// index.html, located in this folder, will run this script in a browser.
 
-let input = prompt("Please input a word to be translated.");
+let input = prompt("Please input a word to be translated."); //Gather input from user. Can only take one word, no numbers, spaces or special characters
 input = input.toLowerCase();
 
 let vowels = "aeiouy";
@@ -25,11 +23,11 @@ if (length > 1) {
         else if (input.search(currentVowel) == 1 && output == "") { //IF the current vowel is NOT found in position one, and IS found in position 2, AND we don't already have a vowel match
             let movingLetter = input.charAt(0);
             let slicedInput = input.substring(1, length);
-            output = slicedInput + movingLetter + "ay"; //Execute rule for "first is consonant,second is vowel"
+            output = slicedInput + movingLetter + "ay"; //Execute rule for "begins with consonant,second is vowel"
         }
         counter++;
     }
-    if (output == "") { //If there is no vowel in the first two positions of the string, the output is still blank, and they must both be consonants
+    if (output == "") { //If there is no vowel in the first two positions of the string, the output is still blank, then they must both be consonants
         let movingLetters = input.slice(0,2);
         let slicedInput = input.substring(2, length);
         output = slicedInput + movingLetters + "ay";
